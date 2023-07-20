@@ -11,7 +11,7 @@ const staticAssets = [
   "https://kit.fontawesome.com/3a23dfdecd.js",
 ];
 
-//Adding the Cache
+//Adding to the Cache
 self.addEventListener("install", (event) => {
   console.log("installed");
   event.waitUntil(
@@ -24,7 +24,7 @@ self.addEventListener("install", (event) => {
   );
 });
 
-//Adding the activate
+//Adding the activate listener
 self.addEventListener("activate", (event) => {
   console.log("activated");
   self.skipWaiting();
