@@ -31,13 +31,13 @@
             </div>
             <div class="d-flex justify-content-evenly mb-2">
                 <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                    <button type="button" class="btn btn-success">
+                    <button type="button" class="btn"  style="border: black 1px solid" onclick="addItem()">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
                           </svg>
                     </button>
-                    <button type="button" class="btn btn-warning">Middle</button>
-                    <button type="button" class="btn btn-danger">
+                    <input type="text"  value="0"  id="itemCounter" style="width: 40px; text-align: center;" disabled/>
+                    <button type="button" class="btn" style="border: black 1px solid" onclick="reduceItem()">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/>
                           </svg>
@@ -50,5 +50,17 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        const itemCounter = document.getElementById("itemCounter");
+        function addItem(){
+            let val = Number.parseInt(itemCounter.getAttribute("value"));
+            itemCounter.setAttribute("value",val+1);
+        }
+        function reduceItem(){
+            let val = Number.parseInt(itemCounter.getAttribute("value"));
+            if(val == 0) return; 
+            itemCounter.setAttribute("value",val-1);
+        }
+    </script>
   </body>
 </html>
