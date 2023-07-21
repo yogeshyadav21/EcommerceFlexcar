@@ -9,6 +9,8 @@ const staticAssets = [
   "/images/tomasz-gawlowski-YDZPdqv3FcA-unsplash.jpg",
   "/images/fabian-heimann-4R_WEmhx8og-unsplash.jpg",
   "https://kit.fontawesome.com/3a23dfdecd.js",
+  './nav.js',
+  './card.js',
 ];
 
 //Adding to the Cache
