@@ -48,8 +48,8 @@
                 <div>
                     Total Price:
                 </div>
-                <div>
-                    <em id="quantity">1</em> x <em id="price">"getPrice()"</em> = <div id="total"></div>
+                <div class="d-inline-flex">
+                    <em id="quantity">1</em> x <em id="price"></em> = <div id="total">10000</div>
                 </div>
             </div>
             <div style="display: flex; justify-content: space-around">
@@ -69,14 +69,14 @@
             let val = Number.parseInt(itemCounter.getAttribute("value"));
             itemCounter.setAttribute("value",val+1);
             quantity.textContent = val+1;
-            // total.textContent = Number.parseInt(price.textContent*Number.parseInt(quantity.textContent));
+            total.textContent = Number.parseInt(price.textContent*Number.parseInt(quantity.textContent));
         }
         function reduceItem(){
             let val = Number.parseInt(itemCounter.getAttribute("value"));
             if(val == 0) return; 
             itemCounter.setAttribute("value",val-1);
             quantity.textContent = val-1;
-            // total.textContent = Number.parseInt(price.textContent*Number.parseInt(quantity.textContent));
+            total.textContent = Number.parseInt(price.textContent*Number.parseInt(quantity.textContent));
         }
     </script>
   </body>
