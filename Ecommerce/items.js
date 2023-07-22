@@ -20,5 +20,3 @@ let items = [
         price: 299,
     },
 ]
-
-export default items;
