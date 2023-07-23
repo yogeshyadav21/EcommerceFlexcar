@@ -12,32 +12,143 @@
     />
     <link rel="stylesheet" href="./style.css" />
     <script
-      src="https://kit.fontawesome.com/3a23dfdecd.js"
-      crossorigin="anonymous"
+    src="https://kit.fontawesome.com/3a23dfdecd.js"
+    crossorigin="anonymous"
     ></script>
+    <script src="./items.js" type="text/javascript"></script>
+    <script src="./app.js" type="text/javascript"></script>
   </head>
-
+  
   <body>
-    <navigation-bar></navigation-bar>
-    <card-elements></card-elements>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top z-0">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img
+            src="./images/flexcar-seeklogo.com.svg"
+            alt="Logo"
+            width="100"
+            height="24"
+            class="d-inline-block align-text-top"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+          </ul>
+          <i class="fa-solid fa-heart fa-xl" style="margin-right: 2%" onclick="openWishlist()"></i>
+          <i class="fa-solid fa-cart-shopping fa-xl" onclick="openCart()"></i>
+        </div>
+      </div>
+    </nav>
+
+    <div class="grid-container" style="grid-template-rows: 400px;">
+      <div class="card" style="width: 18rem">
+        <img
+          src="./images/bagus-hernawan-A6JxK37IlPo-unsplash.jpg"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body" style="display: flex; flex-direction: column">
+          <h5 class="card-title">Iphone X</h5>
+          <div style="position: absolute; bottom: 4rem;">
+            <h2 class="d-inline">$999</h2>
+          </div>
+          <div style="position: absolute; bottom: 1rem">
+            <button class="btn btn-warning" onclick="addToWishlist(0)">Add To Wishlist</button>
+            <button class="btn btn-primary" onclick="addToCart(0)">Add To Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem">
+        <img
+          src="./images/maxim-hopman-Hin-rzhOdWs-unsplash.jpg"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title">APPLE 2020 Macbook Air M1</h5>
+          <div style="position: absolute; bottom: 4rem;">
+            <h2 class="d-inline">$1,499</h2>
+          </div>
+          <div style="position: absolute; bottom: 1rem">
+            <button class="btn btn-warning" onclick="addToWishlist(1)">Add To Wishlist</button>
+            <button class="btn btn-primary" onclick="addToCart(1)">Add To Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem">
+        <img
+          src="./images/tomasz-gawlowski-YDZPdqv3FcA-unsplash.jpg"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title">SONY WH-CH510</h5>
+          <div style="position: absolute; bottom: 4rem;">
+            <h2 class="d-inline">$459</h2>
+          </div>
+          <div style="position: absolute; bottom: 1rem">
+            <button class="btn btn-warning" onclick="addToWishlist(2)">Add To Wishlist</button>
+            <button class="btn btn-primary" onclick="addToCart(2)">Add To Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem">
+        <img
+          src="./images/fabian-heimann-4R_WEmhx8og-unsplash.jpg"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title">FOSSIL</h5>
+          <div style="position: absolute; bottom: 4rem;">
+            <h2 class="d-inline">$299</h2>
+          </div>
+          <div style="position: absolute; bottom: 1rem">
+            <button class="btn btn-warning" onclick="addToWishlist(3)">Add To Wishlist</button>
+            <button class="btn btn-primary" onclick="addToCart(3)">Add To Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="wishlist" id="mywishlist">
       <a href="javascript:void(0)" class="closebtn" onclick="closeWishlist()">&times;</a>
-      <a href="#">About</a>
-      <a href="#">Services</a>
-      <a href="#">Clients</a>
-      <a href="#">Contact</a>
+      <h1>Wishlist</h1>
+      <hr style="height: 5px; color: white;">
+    </div>
+
+    <div class="wishlist" id="mycart">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeCart()">&times;</a>
+      <h1>Cart</h1>
+      <hr style="height: 5px; color: white;">
     </div>
 
     <script>
       function openWishlist() {
         document.getElementById("mywishlist").style.width = "400px";
-        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
       }
-      
       function closeWishlist() {
         document.getElementById("mywishlist").style.width = "0";
-        document.body.style.backgroundColor = "white";
+      }
+      function openCart() {
+        document.getElementById("mycart").style.width = "400px";
+      }
+      function closeCart() {
+        document.getElementById("mycart").style.width = "0";
       }
       </script>
 
@@ -46,8 +157,6 @@
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
       crossorigin="anonymous"
     ></script>
-    <script src="./card.js"></script>
     <script src="./app.js"></script>
-    <script src="./nav.js"></script>
   </body>
 </html>
