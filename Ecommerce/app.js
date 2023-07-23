@@ -14,6 +14,11 @@ let cart = [];
 let cartValue = 0;
 let CartPrices = {};
 
+function renderCartValue(){
+    const cartValueContainer = document.getElementById('totalCartValue');
+    cartValueContainer.textContent = '$'+cartValue;
+}
+
 function addToWishlist(id){
     if(wishlist.indexOf(id) != -1){
         return;
@@ -59,13 +64,15 @@ function addToCart(id){
     const cartContainer = document.getElementById("mycart");
     const product = document.createElement("div");
     product.className = `card`;
-    product.id= `cart-card-${id}`;
+    const productId = `cart-card-${id}`;
+    product.id= productId;
+    
     if(cart.indexOf(product.id) != -1){
         addItem(id);
         return;
     }
     cartValue+= items[id].price;
-    CartPrices[product.id] = items[id].price;
+    CartPrices.productId = items[id].price;
     cart.push(product.id);
     product.style = "width: 18rem; margin-left: 50px; margin-bottom: 10px";
     product.innerHTML=`
@@ -104,6 +111,7 @@ function addToCart(id){
         </div>
     `;
     cartContainer.appendChild(product);
+    renderCartValue();
 }
 
 function addItem(id){
@@ -117,6 +125,7 @@ function addItem(id){
     cartValue += items[id].price;
     CartPrices.productId += items[id].price;
     total.textContent = "$"+Number.parseInt(price.textContent*Number.parseInt(quantity.textContent));
+    renderCartValue();
 }
 
 function reduceItem(id){
@@ -131,6 +140,7 @@ function reduceItem(id){
     cartValue -= items[id].price;
     CartPrices.productId -= items[id].price;
     total.textContent = "$"+Number.parseInt(price.textContent*Number.parseInt(quantity.textContent));
+    renderCartValue();
 }
 
 
@@ -139,7 +149,9 @@ function removeFromCart(id){
     const productId = `cart-card-${id}`;
     const item = document.getElementById(productId);
     cartContainer.removeChild(item);
+    console.log(CartPrices.productId);
     cartValue -= CartPrices.productId;
+    renderCartValue();
     delete CartPrices.productId;
     cart = cart.filter(function(ele) {
         return ele !== productId;
