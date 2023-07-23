@@ -1,7 +1,6 @@
 class NavigationBar extends HTMLElement{
     connectedCallback(){
-        this.innerHTML = `
-        <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top z-0">
+        this.innerHTML = `<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top z-0">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
             <img
@@ -29,16 +28,11 @@ class NavigationBar extends HTMLElement{
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
             </ul>
-            <i
-              class="fa-solid fa-heart fa-xl"
-              style="margin-right: 2%"
-              onclick="openWishlist()"
-            ></i>
-            <i class="fa-solid fa-cart-shopping fa-xl"></i>
+            <i class="fa-solid fa-heart fa-xl" style="margin-right: 2%" onclick="openWishlist()"></i>
+            <i class="fa-solid fa-cart-shopping fa-xl" onclick="openCart()"></i>
           </div>
         </div>
-      </nav>
-        `;
+      </nav>`;
     };
 }
 
