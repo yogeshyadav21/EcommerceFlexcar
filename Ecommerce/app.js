@@ -11,7 +11,8 @@ let offlineQueue = [];
 let onlineQueue = [];
 let wishlist = [];
 let cart = [];
-
+let cartValue = 0;
+let CartPrices = {};
 
 function addToWishlist(id){
     if(wishlist.indexOf(id) != -1){
@@ -33,11 +34,16 @@ function addToWishlist(id){
             <h2 class="d-inline">$${items[id].price}</h2>
           </div>
         <div style="display: flex; justify-content: space-around">
-            <button class="btn btn-success">Move to Cart</button>
-            <button class="btn btn-danger" onclick="removeFromWishlist(${id})">Remove</button>
+            <button class="btn btn-success" onClick="moveToCart(${id})">Move to Cart</button>
+            <button class="btn btn-danger" onClick="removeFromWishlist(${id})">Remove</button>
         </div>
     </div>`;
     wishlistContainer.appendChild(product);
+}
+
+function moveToCart(id){
+    removeFromWishlist(id);
+    addToCart(id);
 }
 
 function removeFromWishlist(id){
@@ -54,6 +60,13 @@ function addToCart(id){
     const product = document.createElement("div");
     product.className = `card`;
     product.id= `cart-card-${id}`;
+    if(cart.indexOf(product.id) != -1){
+        addItem(id);
+        return;
+    }
+    cartValue+= items[id].price;
+    CartPrices[product.id] = items[id].price;
+    cart.push(product.id);
     product.style = "width: 18rem; margin-left: 50px; margin-bottom: 10px";
     product.innerHTML=`
         <div class="card-body">
@@ -86,7 +99,7 @@ function addToCart(id){
                 </div>
             </div>
             <div style="display: flex; justify-content: space-around">
-                <button class="btn btn-danger">Remove</button>
+                <button class="btn btn-danger" onClick="removeFromCart(${id})">Remove</button>
             </div>
         </div>
     `;
@@ -101,6 +114,8 @@ function addItem(id){
     let val = Number.parseInt(itemCounter.getAttribute("value"));
     itemCounter.setAttribute("value",val+1);
     quantity.textContent = val+1;
+    cartValue += items[id].price;
+    CartPrices.productId += items[id].price;
     total.textContent = "$"+Number.parseInt(price.textContent*Number.parseInt(quantity.textContent));
 }
 
@@ -110,8 +125,23 @@ function reduceItem(id){
     const total = document.getElementById(productId+'-total');
     const itemCounter = document.getElementById(productId+'-itemCounter');
     let val = Number.parseInt(itemCounter.getAttribute("value"));
-    if(val == 0) return;
+    if(val == 1) return;
     itemCounter.setAttribute("value",val-1);
     quantity.textContent = val-1;
+    cartValue -= items[id].price;
+    CartPrices.productId -= items[id].price;
     total.textContent = "$"+Number.parseInt(price.textContent*Number.parseInt(quantity.textContent));
+}
+
+
+function removeFromCart(id){
+    const cartContainer = document.getElementById("mycart");
+    const productId = `cart-card-${id}`;
+    const item = document.getElementById(productId);
+    cartContainer.removeChild(item);
+    cartValue -= CartPrices.productId;
+    delete CartPrices.productId;
+    cart = cart.filter(function(ele) {
+        return ele !== productId;
+    })
 }
