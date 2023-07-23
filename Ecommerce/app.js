@@ -16,6 +16,12 @@ let CartPrices = {};
 
 function renderCartValue(){
     const cartValueContainer = document.getElementById('totalCartValue');
+    const submitButton = document.getElementById("checkoutButton");
+    if(cartValue>0){
+        submitButton.style.display="block";
+    }else{
+        submitButton.style.display="none";
+    }
     cartValueContainer.textContent = '$'+cartValue;
 }
 
@@ -74,7 +80,7 @@ function addToCart(id){
     cartValue+= items[id].price;
     CartPrices.productId = items[id].price;
     cart.push(product.id);
-    product.style = "width: 18rem; margin-left: 50px; margin-bottom: 10px";
+    product.style = "width: 18rem; margin-left: 50px; margin-bottom: 10px; z-index: 1;";
     product.innerHTML=`
         <div class="card-body">
             <div style=" display: flex; justify-content: space-around; align-items: center; margin-bottom: 10px;">
@@ -149,7 +155,6 @@ function removeFromCart(id){
     const productId = `cart-card-${id}`;
     const item = document.getElementById(productId);
     cartContainer.removeChild(item);
-    console.log(CartPrices.productId);
     cartValue -= CartPrices.productId;
     renderCartValue();
     delete CartPrices.productId;
