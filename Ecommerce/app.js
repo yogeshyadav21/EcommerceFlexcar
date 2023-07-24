@@ -239,3 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 })
 
+
+//Getting data from the cart to the checkout page
+let orderSummary = document.querySelector('#orderSummary');
+orderSummary.innerHTML = document.getElementById("mycart");
