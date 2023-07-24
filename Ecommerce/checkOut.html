@@ -21,26 +21,73 @@
     <!-- Navbar -->
     <navigation-bar></navigation-bar>
 
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-      Launch static backdrop modal
-    </button>
+    <div class="checkOut-container">
+      <div class="section">
+        <!-- Button trigger modal -->
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#staticBackdrop"
+          id="addressButton"
+        >
+          Add Delivery Addreess
+        </button>
 
-    <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Delivery Address</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <address-form></address-form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="staticBackdrop"
+          data-bs-backdrop="static"
+          data-bs-keyboard="false"
+          tabindex="-1"
+          aria-labelledby="staticBackdropLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                  Add Delivery Address
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <address-form></address-form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
           </div>
         </div>
+
+        <div id="address"></div>
+      </div>
+      <div class="section" id="bb">
+        A vlog, also known as a video blog or video log, is a form of blog for
+        which the medium is video. Vlog entries often combine embedded video
+        with supporting text, images, and other metadata. Entries can be
+        recorded in one take or cut into multiple parts. Vlog category is
+        popular on the video-sharing platform YouTube.
+      </div>
+      <div class="section">
+        A vlog, also known as a video blog or video log, is a form of blog for
+        which the medium is video. Vlog entries often combine embedded video
+        with supporting text, images, and other metadata. Entries can be
+        recorded in one take or cut into multiple parts. Vlog category is
+        popular on the video-sharing platform YouTube.
       </div>
     </div>
 
