@@ -10,6 +10,35 @@
     list-style: none;
 }
 
+
+.checkOut-container {
+  display: flex;
+  margin: auto;
+  margin-top: 1rem;
+  flex-direction: column;
+  border-color: rgba(0, 0, 0, 0.176);
+  border-radius: 10px;
+  border-width: 1px;
+  border-style: solid;
+  padding: 1rem;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  background-color:#D3D3D3;
+  width: 80%;
+  align-content: center;
+}
+
+.section{
+  background-color: #fff;
+  margin-bottom: .5rem;
+  margin-top: .5rem;
+  padding: 1rem;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  border-radius: 1rem;
+}
+
+
+
+
 .wishlist {
     height: 100%;
     width: 0;
@@ -21,6 +50,7 @@
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
+    
 
   }
   

@@ -1,6 +1,6 @@
-if(navigator.serviceWorker){
-    navigator.serviceWorker.register('sw.js');
-} 
+// if(navigator.serviceWorker){
+//     navigator.serviceWorker.register('sw.js');
+// } 
 
 if ('caches' in window) {
     console.log("yes");
@@ -218,3 +218,24 @@ function openWishlist() {
 
   window.addEventListener('online',()=>{console.log('User Online')});
   window.addEventListener('offline',()=>{console.log('User Offline')});
+}
+
+
+//Add the Delivery Address
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('#myForm').addEventListener('submit', (event)=>{
+        event.preventDefault();
+        const inputHouseNumber = event.target.elements['inputHouseNumber'].value;
+        const inputCity = event.target.elements['inputCity'].value;
+        const inputDistrict = event.target.elements['inputDistrict'].value;
+        const inputZip = event.target.elements['inputZip'].value;
+        const inputLandmark = event.target.elements['inputLandmark'].value;
+        const inputState = event.target.elements['inputState'].value;
+        
+        document.getElementById("addressButton").innerHTML = "Edit Delivery Address";
+
+        document.getElementById("address").innerHTML=`House Number = ${inputHouseNumber}, ${inputLandmark}, ${inputCity}, ${inputDistrict}(${inputState}), ${inputZip}`;
+
+    })
+})
+

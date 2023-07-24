@@ -1,6 +1,6 @@
 class AddressForm extends HTMLElement {
     connectedCallback() {
-        this.innerHTML = `<form class="row g-3">
+        this.innerHTML = `<form class="row g-3" id="myForm">
         <div class="col-md-6">
           <label for="inputHouseNumber" class="form-label">House Number</label>
           <input type="text" class="form-control" id="inputHouseNumber">
@@ -14,8 +14,8 @@ class AddressForm extends HTMLElement {
           <input type="text" class="form-control" id="inputLandmark" placeholder="Near Auto Stand">
         </div>
         <div class="col-12">
-          <label for="inputAddress" class="form-label">Complete Address</label>
-          <input type="text" class="form-control" id="inputAddress" placeholder="Apartment, city, state, pincode">
+          <label for="inputZip" class="form-label">Zip code</label>
+          <input type="text" class="form-control" id="inputZip" placeholder="122101">
         </div>
         <div class="col-md-6">
           <label for="inputDistrict" class="form-label">District</label>
