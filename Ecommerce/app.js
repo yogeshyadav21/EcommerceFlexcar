@@ -1,15 +1,11 @@
-// if(navigator.serviceWorker){
-//     navigator.serviceWorker.register('sw.js');
-// } 
+if(navigator.serviceWorker){
+    let registration;
+    const registerServiceWorker = async ()=> {
+        registration = await navigator.serviceWorker.register('./sw.js');
+    }
+    registerServiceWorker();
+} 
 
-if ('caches' in window) {
-    console.log("yes");
-  } else {
-    console.log("no");
-  }
-
-let offlineQueue = [];
-let onlineQueue = [];
 let wishlist = [];
 let cart = [];
 let cartValue = 0;
@@ -218,7 +214,6 @@ function openWishlist() {
 
   window.addEventListener('online',()=>{console.log('User Online')});
   window.addEventListener('offline',()=>{console.log('User Offline')});
-}
 
 
 //Add the Delivery Address
