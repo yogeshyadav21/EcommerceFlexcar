@@ -233,4 +233,3 @@ function openWishlist() {
 
   window.addEventListener('online',()=>{console.log('User Online')});
   window.addEventListener('offline',()=>{console.log('User Offline')});
-});
