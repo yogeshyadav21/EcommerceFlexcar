@@ -3,7 +3,6 @@ class NavigationBar extends HTMLElement{
         this.innerHTML = `
     <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top z-0">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">
           <img
             src="./images/flexcar-seeklogo.com.svg"
             alt="Logo"
@@ -11,7 +10,6 @@ class NavigationBar extends HTMLElement{
             height="24"
             class="d-inline-block align-text-top"
           />
-        </a>
         <button
           class="navbar-toggler"
           type="button"
@@ -26,11 +24,11 @@ class NavigationBar extends HTMLElement{
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
             </li>
           </ul>
-          <i class="fa-solid fa-heart fa-xl" style="margin-right: 2%" onclick="openWishlist()"></i>
-          <i class="fa-solid fa-cart-shopping fa-xl" onclick="openCart()"></i>
+          <i class="fa-solid fa-heart fa-xl" style="margin-right: 2%" onclick="openWishlist()" alt="Wishlist"></i>
+          <i class="fa-solid fa-cart-shopping fa-xl" onclick="openCart()" alt="Cart"></i>
         </div>
       </div>
     </nav>

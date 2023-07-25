@@ -41,7 +41,8 @@ self.addEventListener("activate", (event) => {
 //Retriving the data online first
 self.addEventListener('fetch', event =>{
   event.respondWith(
-    fetch(event.request)
-    .then(response => response?response:caches.match(event.request))
+    fetch(event.request).catch(error=>{
+      return caches.match(event.request);
+    })
   )
 });
