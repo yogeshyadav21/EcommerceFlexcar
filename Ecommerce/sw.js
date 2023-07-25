@@ -3,7 +3,11 @@ const staticAssets = [
   "/Ecommerce/index.html",
   "/Ecommerce/app.js",
   "/Ecommerce/style.css",
+  "/Ecommerce/checkOut.html",
+  "/Ecommerce/checkOut.js",
   "/Ecommerce/navScript.js",
+  "/Ecommerce/store.js",
+  "/Ecommerce/form.js",
   "/Ecommerce/images/bagus-hernawan-A6JxK37IlPo-unsplash.jpg",
   "/Ecommerce/images/fabian-heimann-4R_WEmhx8og-unsplash.jpg",
   "/Ecommerce/images/flexcar-seeklogo.com.svg",
@@ -34,10 +38,10 @@ self.addEventListener("activate", (event) => {
 });
 
 
-//Retriving the data
+//Retriving the data online first
 self.addEventListener('fetch', event =>{
   event.respondWith(
-    caches.match(event.request)
-    .then(response => response?response:fetch(event.request))
+    fetch(event.request)
+    .then(response => response?response:caches.match(event.request))
   )
 });

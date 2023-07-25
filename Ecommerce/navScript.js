@@ -29,8 +29,8 @@ class NavigationBar extends HTMLElement{
               <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
           </ul>
-          <i class="fa-solid fa-cart-shopping fa-xl" onclick="openCart()"></i>
           <i class="fa-solid fa-heart fa-xl" style="margin-right: 2%" onclick="openWishlist()"></i>
+          <i class="fa-solid fa-cart-shopping fa-xl" onclick="openCart()"></i>
         </div>
       </div>
     </nav>

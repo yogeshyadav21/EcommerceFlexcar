@@ -35,6 +35,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
         orderSummary.appendChild(orderSummaryElement);
     })
     let x = document.createElement('div');
-    x.innerHTML = `<div style="margin-top:1rem;"><strong>Total Value: </strong>${cartValue}</div>`;
+    x.innerHTML = `<div style="margin-top:1rem;"><strong>Total Value: </strong>$${cartValue}</div>`;
     orderSummary.appendChild(x);
 });
