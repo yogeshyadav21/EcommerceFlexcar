@@ -64,11 +64,13 @@ function renderCartValue() {
 
 function addToWishlist(id, save = true) {
   if (wishlist.indexOf(id) != -1 && save) {
+    Toast.show("Wishlist","Item already present in Wishlist","warning");
     return;
   }
   const wishlistContainer = document.getElementById("mywishlist");
   if (save) {
     wishlist.push(id);
+    Toast.show("Wishlist","Item addess Successfully","success");
     udpdateSessionStorage("wishlist", wishlist);
   }
   const product = document.createElement("div");
@@ -104,6 +106,7 @@ function removeFromWishlist(id) {
   wishlist = wishlist.filter(function (ele) {
     return ele !== id;
   });
+  Toast.show("Wishlist","Item removed from Wishlist","success");
   udpdateSessionStorage("wishlist", wishlist);
 }
 
@@ -160,6 +163,7 @@ function addToCart(id, save = true) {
     cart.push(id);
     cartValue += items[id].price;
     CartPrices[productId] = items[id].price;
+    Toast.show("Cart","Item added to cart successfully","success");
     udpdateSessionStorage("cart", cart);
     udpdateSessionStorage("cartPrices", CartPrices);
     renderCartValue();
@@ -220,6 +224,7 @@ function removeFromCart(id) {
   cart = cart.filter(function (ele) {
     return ele != id;
   });
+  Toast.show("Cart","Item removed from Cart","success");
   udpdateSessionStorage("cart", cart);
   udpdateSessionStorage("cartPrices", CartPrices);
   renderCartValue();
