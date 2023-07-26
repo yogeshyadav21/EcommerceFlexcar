@@ -15,6 +15,7 @@ const staticAssets = [
   "/Ecommerce/images/maxim-hopman-Hin-rzhOdWs-unsplash.jpg",
   "/Ecommerce/images/tomasz-gawlowski-YDZPdqv3FcA-unsplash.jpg",
   "https://kit.fontawesome.com/3a23dfdecd.js",
+  "/Ecommerce/toast.js",
 ];
 
 //Adding to the Cache
@@ -43,6 +44,8 @@ self.addEventListener('fetch', event =>{
   event.respondWith(
     fetch(event.request).catch(error=>{
       return caches.match(event.request);
+
+      
     })
   )
 });
