@@ -1,27 +1,32 @@
 const CACHE_NAME = "static_cache";
 const staticAssets = [
-  "/index.html",
-  "/app.js",
-  "/style.css",
-  "/images/flexcar-seeklogo.com.svg",
-  "/images/bagus-hernawan-A6JxK37IlPo-unsplash.jpg",
-  "/images/maxim-hopman-Hin-rzhOdWs-unsplash.jpg",
-  "/images/tomasz-gawlowski-YDZPdqv3FcA-unsplash.jpg",
-  "/images/fabian-heimann-4R_WEmhx8og-unsplash.jpg",
+  "/Ecommerce/index.html",
+  "/Ecommerce/app.js",
+  "/Ecommerce/style.css",
+  "/Ecommerce/checkOut.html",
+  "/Ecommerce/checkOut.js",
+  "/Ecommerce/navScript.js",
+  "/Ecommerce/store.js",
+  "/Ecommerce/form.js",
+  "/Ecommerce/images/bagus-hernawan-A6JxK37IlPo-unsplash.jpg",
+  "/Ecommerce/images/fabian-heimann-4R_WEmhx8og-unsplash.jpg",
+  "/Ecommerce/images/flexcar-seeklogo.com.svg",
+  "/Ecommerce/images/howard-bouchevereau-RSCirJ70NDM-unsplash.jpg",
+  "/Ecommerce/images/maxim-hopman-Hin-rzhOdWs-unsplash.jpg",
+  "/Ecommerce/images/tomasz-gawlowski-YDZPdqv3FcA-unsplash.jpg",
   "https://kit.fontawesome.com/3a23dfdecd.js",
-  './nav.js',
-  './card.js',
 ];
 
 //Adding to the Cache
 self.addEventListener("install", (event) => {
   console.log("installed");
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       return cache
         .addAll(staticAssets)
-        // .then(() => console.log("cache is added"))
-        // .catch((error) => console.log("error occured whle caching", error));
+        .then(() => console.log("cache is added"))
+        .catch((error) => console.log("error occured while caching", error));
     })
   );
 });
@@ -29,14 +34,15 @@ self.addEventListener("install", (event) => {
 //Adding the activate listener
 self.addEventListener("activate", (event) => {
   console.log("activated");
-  self.skipWaiting();
+  self.clients.claim();
 });
 
 
-//Retriving the data
-self.addEventListener("fetch", (event) => {
-  console.log("fetched");
-  event.respondWith(fetch(event.request).catch(error => {
-    return caches.match(event.request);
-  }))
+//Retriving the data online first
+self.addEventListener('fetch', event =>{
+  event.respondWith(
+    fetch(event.request).catch(error=>{
+      return caches.match(event.request);
+    })
+  )
 });
