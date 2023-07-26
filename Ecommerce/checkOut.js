@@ -38,3 +38,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
     x.innerHTML = `<div style="margin-top:1rem;"><strong>Total Value: </strong>$${cartValue}</div>`;
     orderSummary.appendChild(x);
 });
+
+function validate(){
+  console.log("validate function called");
+
+  const closeButton = document.getElementById("closeModalButton");
+  closeButton.click();
+}
