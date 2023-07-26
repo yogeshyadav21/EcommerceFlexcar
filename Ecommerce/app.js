@@ -5,6 +5,13 @@ if (navigator.serviceWorker) {
   };
   registerServiceWorker();
 }
+if (navigator.serviceWorker) {
+  let registration;
+  const registerServiceWorker = async () => {
+    registration = await navigator.serviceWorker.register("./sw.js");
+  };
+  registerServiceWorker();
+}
 
 if ("caches" in window) {
   console.log("yes");
@@ -235,18 +242,17 @@ closeCart = () => {
 };
 =======
 function openWishlist() {
-  document.getElementById("mywishlist").style.width = "400px";
-}
-function closeWishlist() {
-  document.getElementById("mywishlist").style.width = "0";
-}
-function openCart() {
-  document.getElementById("mycart").style.width = "400px";
-}
-function closeCart() {
-  document.getElementById("mycart").style.width = "0";
-}
->>>>>>> 642b084 (validation changes)
+    document.getElementById("mywishlist").style.width = "400px";
+  }
+  function closeWishlist() {
+    document.getElementById("mywishlist").style.width = "0";
+  }
+  function openCart() {
+    document.getElementById("mycart").style.width = "400px";
+  }
+  function closeCart() {
+    document.getElementById("mycart").style.width = "0";
+  }
 
 window.addEventListener("online", () => {
   console.log("User Online");
