@@ -1,21 +1,22 @@
 class AddressForm extends HTMLElement {
+
     connectedCallback() {
         this.innerHTML = `<form class="row g-3" id="myForm">
         <div class="col-md-6">
           <label for="inputHouseNumber" class="form-label">House Number</label>
-          <input type="text" class="form-control" id="inputHouseNumber">
+          <input type="text" class="form-control" id="inputHouseNumber" required>
         </div>
         <div class="col-md-6">
           <label for="inputCity" class="form-label">City/Village</label>
-          <input type="text" class="form-control" id="inputCity">
+          <input type="text" class="form-control" id="inputCity" required>
         </div>
         <div class="col-12">
           <label for="inputLandmark" class="form-label">Landmark</label>
-          <input type="text" class="form-control" id="inputLandmark" placeholder="Near Auto Stand">
+          <input type="text" class="form-control" id="inputLandmark" placeholder="Nearest Landmark">
         </div>
         <div class="col-12">
           <label for="inputZip" class="form-label">Zip code</label>
-          <input type="text" class="form-control" id="inputZip" placeholder="122101">
+          <input class="form-control" id="inputZip" placeholder="122101" type="number" min="100000" max="999999" required>
         </div>
         <div class="col-md-6">
           <label for="inputDistrict" class="form-label">District</label>
@@ -65,10 +66,14 @@ class AddressForm extends HTMLElement {
           </select>
         </div>
         <div class="col-12">
-          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" style="align-self: center;">Submit</button>
+          <button type="submit" class="btn btn-primary" onclick="${validate()}}" style="align-self: center;">Submit</button>
         </div>
       </form>`;
     }
 }
 
 customElements.define('address-form', AddressForm);
+
+function validate(){
+  console.log("validate function called");
+}

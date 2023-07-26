@@ -218,6 +218,7 @@ function removeFromCart(id) {
   renderCartValue();
 }
 
+<<<<<<< HEAD
 openWishlist = () => {
   document.getElementById("mywishlist").style.width = "400px";
   closeCart();
@@ -232,6 +233,20 @@ openCart = () => {
 closeCart = () => {
   document.getElementById("mycart").style.width = "0";
 };
+=======
+function openWishlist() {
+  document.getElementById("mywishlist").style.width = "400px";
+}
+function closeWishlist() {
+  document.getElementById("mywishlist").style.width = "0";
+}
+function openCart() {
+  document.getElementById("mycart").style.width = "400px";
+}
+function closeCart() {
+  document.getElementById("mycart").style.width = "0";
+}
+>>>>>>> 642b084 (validation changes)
 
 window.addEventListener("online", () => {
   console.log("User Online");
