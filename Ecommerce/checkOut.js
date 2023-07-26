@@ -62,10 +62,10 @@ document.getElementById("proceedPay").addEventListener("click", () => {
     }
     sessionStorage.clear();
   } else if (document.getElementById("address").innerHTML) {
-    alert("Delivery Address is Mandatory");
-  } else {
     location.href = "index.html";
     alert("Please Add Item To The Cart");
+  } else{
+    alert("Delivery Address is Mandatory");
   }
 });
 
