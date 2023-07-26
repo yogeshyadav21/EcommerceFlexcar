@@ -1,7 +1,6 @@
 class AddressForm extends HTMLElement {
-
     connectedCallback() {
-        this.innerHTML = `<form class="row g-3" id="myForm">
+        this.innerHTML = `<form class="row g-3" id="myForm" onsubmit="validate()">
         <div class="col-md-6">
           <label for="inputHouseNumber" class="form-label">House Number</label>
           <input type="text" class="form-control" id="inputHouseNumber" required>
@@ -12,20 +11,20 @@ class AddressForm extends HTMLElement {
         </div>
         <div class="col-12">
           <label for="inputLandmark" class="form-label">Landmark</label>
-          <input type="text" class="form-control" id="inputLandmark" placeholder="Nearest Landmark">
+          <input type="text" class="form-control" id="inputLandmark" placeholder="Near Auto Stand">
         </div>
         <div class="col-12">
           <label for="inputZip" class="form-label">Zip code</label>
-          <input class="form-control" id="inputZip" placeholder="122101" type="number" min="100000" max="999999" required>
+          <input type="number" class="form-control" id="inputZip" placeholder="122101" required min=100000 max=999999>
         </div>
         <div class="col-md-6">
           <label for="inputDistrict" class="form-label">District</label>
-          <input type="text" class="form-control" id="inputDistrict">
+          <input type="text" class="form-control" id="inputDistrict" required>
         </div>
         <div class="col-md-4">
           <label for="inputState" class="form-label">State</label>
-          <select class="form-control" id="inputState">
-            <option selected>Select State</option>
+          <select class="form-control" id="inputState"  required>
+            <option value="" disabled selected>Select State</option>
             <option value="Andra Pradesh">Andra Pradesh</option>
             <option value="Arunachal Pradesh">Arunachal Pradesh</option>
             <option value="Assam">Assam</option>
@@ -66,14 +65,10 @@ class AddressForm extends HTMLElement {
           </select>
         </div>
         <div class="col-12">
-          <button type="submit" class="btn btn-primary" onclick="${validate()}}" style="align-self: center;">Submit</button>
+          <button type="submit" class="btn btn-primary" style="align-self: center;">Submit</button>
         </div>
       </form>`;
     }
 }
 
 customElements.define('address-form', AddressForm);
-
-function validate(){
-  console.log("validate function called");
-}
