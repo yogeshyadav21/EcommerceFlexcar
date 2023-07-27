@@ -62,12 +62,12 @@ document.getElementById("proceedPay").addEventListener("click", () => {
     }
     sessionStorage.clear();
   } else if (document.getElementById("address").innerHTML) {
-    alertModal("Please add the delivery address");
-  } else {
     setTimeout(() => {
       location.href = "index.html";
     }, 3000);
     alertModal("Please Add Item To The Cart");
+  } else {
+    alertModal("Please add the delivery address");
   }
 });
 

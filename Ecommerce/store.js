@@ -3,7 +3,7 @@ let onlineQueue = [];
 let wishlist = [];
 let cart = [];
 let cartValue = 0;
-var CartPrices = {};
+let CartPrices = {};
 let items = [
     {
         title:"Iphone X",
