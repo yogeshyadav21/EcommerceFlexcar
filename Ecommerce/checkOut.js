@@ -43,7 +43,7 @@ document.getElementById("proceedPay").addEventListener("click", () => {
     document.getElementById("address").innerHTML &&
     document.getElementById("orderSummary").innerHTML
   ) {
-    const toast = new bootstrap.Toast(document.getElementById("liveToast"));
+    const toast = new bootstrap.Toast("#liveToast");
     toast.show();
     setInterval(() => {
       location.href = "index.html";
@@ -62,16 +62,26 @@ document.getElementById("proceedPay").addEventListener("click", () => {
     }
     sessionStorage.clear();
   } else if (document.getElementById("address").innerHTML) {
-    location.href = "index.html";
-    alert("Please Add Item To The Cart");
-  } else{
-    alert("Delivery Address is Mandatory");
+    alertModal("Please add the delivery address");
+  } else {
+    setTimeout(() => {
+      location.href = "index.html";
+    }, 3000);
+    alertModal("Please Add Item To The Cart");
   }
 });
 
-function validate(){
+function validate() {
   console.log("validate function called");
 
   const closeButton = document.getElementById("closeModalButton");
   closeButton.click();
 }
+
+// Alert Modal
+alertModal = (text) => {
+  console.log(text);
+  document.getElementById("modalContent").innerHTML = `${text}`;
+  const modal = new bootstrap.Modal("#alertModal");
+  modal.show();
+};
