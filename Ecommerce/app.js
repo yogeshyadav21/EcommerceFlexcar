@@ -1,23 +1,10 @@
 if (navigator.serviceWorker) {
-  let registration;
   const registerServiceWorker = async () => {
-    registration = await navigator.serviceWorker.register("./sw.js");
-  };
-  registerServiceWorker();
-}
-if (navigator.serviceWorker) {
-  let registration;
-  const registerServiceWorker = async () => {
-    registration = await navigator.serviceWorker.register("./sw.js");
+    await navigator.serviceWorker.register("./sw.js");
   };
   registerServiceWorker();
 }
 
-if ("caches" in window) {
-  console.log("yes");
-} else {
-  console.log("no");
-}
 
 document.addEventListener("DOMContentLoaded", () => {
   try {
